@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -24,8 +25,11 @@ public class ComboPromocional extends Producto implements Serializable
 	
 	private float descuento;
 		
-	@ManyToMany(cascade = CascadeType.MERGE)
-	@JoinTable(name="combo_producto", joinColumns=@JoinColumn(name="id_combo"), inverseJoinColumns=@JoinColumn(name="id_producto"))
+//	@ManyToMany(cascade = CascadeType.MERGE)
+//	@JoinTable(name="combo_producto", joinColumns=@JoinColumn(name="id_combo"), inverseJoinColumns=@JoinColumn(name="id_producto"))
+	
+	@OneToMany(cascade = CascadeType.MERGE)
+	@JoinColumn(name="idcombo")
 	private List<Producto> productos;
 	
 	public ComboPromocional(float descuento, String nombre, ArrayList<Producto> productos) {
