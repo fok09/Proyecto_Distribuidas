@@ -6,7 +6,9 @@ public class Adicional extends Producto
 	private int id;
 	private float precio;
 
+
 	public Adicional(String nombre, int id, float precio, String tipo) {
+
 		super();
 		this.nombre = nombre;
 		this.id = id;
