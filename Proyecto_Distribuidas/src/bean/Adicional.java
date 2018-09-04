@@ -1,14 +1,17 @@
 package bean;
 
-public class Alimento extends Producto 
+public class Adicional extends Producto 
 {
-	private String nombre;
+	private String nombre, tipo;
+	private int id;
 	private float precio;
 
-	public Alimento(String nombre, float precio) {
+	public Adicional(String nombre, int id, float precio, String tipo) {
 		super();
 		this.nombre = nombre;
+		this.id = id;
 		this.precio = precio;
+		this.tipo = tipo;
 	}
 	
 	public String getNombre() {
@@ -18,7 +21,15 @@ public class Alimento extends Producto
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public int getId() {
+		return this.id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
@@ -26,6 +37,14 @@ public class Alimento extends Producto
 	public float getPrecio()
 	{
 		return precio;
+	}
+	
+	public String getTipo() {
+		return this.tipo;
+	}
+	
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }

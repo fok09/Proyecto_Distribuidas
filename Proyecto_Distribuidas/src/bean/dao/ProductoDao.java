@@ -1,9 +1,11 @@
 package bean.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import bean.Adicional;
+import bean.Producto;
 import hbt.HibernateUtil;
 
 public class ProductoDao {
@@ -18,19 +20,37 @@ public class ProductoDao {
 		return instancia;
 	}
 
-	public Adicional get(int id) {
+	public Producto get(int id) {
 		Session session = sf.getCurrentSession();
 		session.beginTransaction();
-		Adicional result = (Adicional) session.get(Adicional.class, id);
+		Producto result = (Producto) session.get(Producto.class, id);
 		session.getTransaction().commit();
 		return result;
 	}
 
-	public void grabarAdicional(Adicional adicional) {
+	public void grabarProducto(Producto producto) {
 		Session session = sf.getCurrentSession();
 		session.beginTransaction();
-		session.merge(adicional);
+		session.merge(producto);
 		session.flush();
 		session.getTransaction().commit();
+	}
+	
+	public void grabarProductos(List<Producto> productos){
+		Session session = sf.openSession();
+		session.beginTransaction();
+		for(Producto producto:productos)
+			session.merge(producto);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
+	}
+	
+	public List<Producto> leerProductos(){
+		Session session = sf.openSession();
+		@SuppressWarnings("unchecked")
+		List<Producto> list = session.createQuery("from Producto").list();
+		session.close();
+		return list;
 	}
 }
