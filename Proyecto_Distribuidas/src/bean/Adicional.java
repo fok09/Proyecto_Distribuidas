@@ -1,8 +1,25 @@
 package bean;
 
-public class Adicional extends Producto 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="adicional")
+@PrimaryKeyJoinColumn(name="codigo") 
+public class Adicional extends Producto implements Serializable
 {
-	private String nombre, tipo;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private String nombre;
+	private String tipo;
+	
+	
 	private int id;
 	private float precio;
 
@@ -14,6 +31,9 @@ public class Adicional extends Producto
 		this.id = id;
 		this.precio = precio;
 		this.tipo = tipo;
+	}
+	
+	public Adicional() {
 	}
 	
 	public String getNombre() {

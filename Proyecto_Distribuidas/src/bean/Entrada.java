@@ -1,7 +1,21 @@
 package bean;
 
-public class Entrada extends Producto 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="entrada")
+@PrimaryKeyJoinColumn(name="codigo") 
+public class Entrada extends Producto implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String pelicula;
 	private String sala;
 	private String horario;
@@ -16,6 +30,9 @@ public class Entrada extends Producto
 		this.precio = precio;
 	}
 
+	public Entrada(){
+	}
+	
 	public String getPelicula() {
 		return pelicula;
 	}

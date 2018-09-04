@@ -6,7 +6,9 @@ import org.hibernate.cfg.Configuration;
 import bean.Adicional;
 import bean.Venta;
 import bean.ComboPromocional;
+import bean.Entrada;
 import bean.ItemVenta;
+import bean.Producto;
 
 public class HibernateUtil {
 	private static final SessionFactory sessionFactory;
@@ -14,6 +16,8 @@ public class HibernateUtil {
 		try {
 			Configuration config = new Configuration();
 			config.addAnnotatedClass(Adicional.class);
+			config.addAnnotatedClass(Entrada.class);
+			config.addAnnotatedClass(Producto.class);
 			config.addAnnotatedClass(Venta.class);
 			config.addAnnotatedClass(ComboPromocional.class);
 			config.addAnnotatedClass(ItemVenta.class);
