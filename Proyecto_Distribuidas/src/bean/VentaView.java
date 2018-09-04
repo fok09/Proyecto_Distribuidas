@@ -1,5 +1,6 @@
 package bean;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class VentaView 
@@ -8,7 +9,7 @@ public class VentaView
 	private String fecha;
 	private Vector<Vector<String>> items;
 	
-	public VentaView(int nu,String fe,ArrayList<ItemVenta> it)
+	public VentaView(int nu,String fe,List<ItemVenta> it)
 	{
 		numero = nu;
 		fecha = fe;

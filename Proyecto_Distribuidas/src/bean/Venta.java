@@ -2,6 +2,7 @@ package bean;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Venta implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int numero;
-	private LocalDate fecha;
+	private String fecha;
 	
 	@OneToMany (cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name="nroventa")
@@ -38,7 +39,8 @@ public class Venta implements Serializable
 	public Venta()
 	{
 		super();
-		this.fecha = LocalDate.now();
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM");
+		this.fecha = LocalDate.now().format(format).toString();
 		this.items = new ArrayList<ItemVenta>();
 	}
 
@@ -50,7 +52,7 @@ public class Venta implements Serializable
 		this.numero = numero;
 	}
 
-	public LocalDate getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 	
@@ -62,6 +64,11 @@ public class Venta implements Serializable
 	
 	public ItemVenta getItem(int index){
 		return items.get(index);
+	}
+	
+	public VentaView getView()
+	{
+		return new VentaView(numero,fecha,items);
 	}
 	
 	public float getTotal()

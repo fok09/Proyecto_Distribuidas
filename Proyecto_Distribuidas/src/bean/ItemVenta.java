@@ -58,4 +58,9 @@ public class ItemVenta implements Serializable
 	{
 		return producto.getPrecio() * cantidad;
 	}
+	
+	public ItemVentaView getView()
+	{
+		return new ItemVentaView(producto.getCodigo(),producto.getNombre(),cantidad);
+	}
 }
