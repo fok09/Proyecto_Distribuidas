@@ -1,11 +1,11 @@
 package bean;
 
-public class Alimento extends Producto 
+public class Adicional extends Producto 
 {
 	private String nombre;
 	private float precio;
 
-	public Alimento(String nombre, float precio) {
+	public Adicional(String nombre, float precio) {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
