@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import bean.ComboPromocional;
 import bean.Producto;
 import hbt.HibernateUtil;
 
@@ -36,10 +37,10 @@ public class ProductoDao {
 		session.getTransaction().commit();
 	}
 	
-	public void grabarProductos(List<Producto> productos){
+	public void grabarCombo(ComboPromocional combo){
 		Session session = sf.openSession();
 		session.beginTransaction();
-		for(Producto producto:productos)
+		for(Producto producto:combo.getProductos())
 			session.merge(producto);
 		session.flush();
 		session.getTransaction().commit();

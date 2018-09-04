@@ -25,6 +25,7 @@ public class Entrada extends Producto implements Serializable
 	{
 		super();
 //		this.pelicula = pelicula;
+		this.setNombre(pelicula);
 		this.sala = sala;
 		this.horario = horario;
 		this.precio = precio;

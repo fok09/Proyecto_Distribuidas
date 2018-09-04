@@ -20,11 +20,12 @@ public class Adicional extends Producto implements Serializable
 	private float precio;
 
 
-	public Adicional(String nombre, int id, float precio, String tipo) {
+	public Adicional(String nombre, float precio, String tipo) {
 
 		super();
 		this.precio = precio;
 		this.tipo = tipo;
+		this.setNombre(nombre);
 	}
 	
 	public Adicional() {

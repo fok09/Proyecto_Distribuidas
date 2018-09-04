@@ -30,6 +30,7 @@ public class ComboPromocional extends Producto implements Serializable
 	
 	public ComboPromocional(float descuento, String nombre, ArrayList<Producto> productos) {
 		super();
+		this.setNombre(nombre);
 		this.descuento = descuento;
 		this.productos = productos;
 	}

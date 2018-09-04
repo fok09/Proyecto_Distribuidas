@@ -20,19 +20,21 @@ public abstract class Producto implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 
-	protected static int proximoNumero;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected int codigo;
 	private String nombre;
 
+	public Producto(String nombre) 
+	{
+		super();
+		this.nombre = nombre;
+	}
 	
 	public Producto() 
 	{
-		super();
-		this.codigo = getProximoNumero();
 	}
+	
 	
 	public int getCodigo() {
 		return codigo;
@@ -42,10 +44,6 @@ public abstract class Producto implements Serializable
 		this.codigo = codigo;
 	}
 	
-	private int getProximoNumero()
-	{
-		return proximoNumero++;
-	}
 	
 	public abstract float getPrecio();
 
