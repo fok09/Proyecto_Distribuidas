@@ -23,24 +23,15 @@ public class Entrada extends Producto implements Serializable
 	
 	public Entrada(String pelicula, String sala, String horario, float precio) 
 	{
-		super();
-//		this.pelicula = pelicula;
-		this.setNombre(pelicula);
+		super(pelicula);
 		this.sala = sala;
 		this.horario = horario;
 		this.precio = precio;
 	}
 
-	public Entrada(){
+	public Entrada()
+	{
 	}
-	
-//	public String getPelicula() {
-//		return pelicula;
-//	}
-//
-//	public void setPelicula(String pelicula) {
-//		this.pelicula = pelicula;
-//	}
 
 	public String getSala() {
 		return sala;
@@ -66,4 +57,9 @@ public class Entrada extends Producto implements Serializable
 	{
 		return precio;
 	}	
+	
+	public ProductoView getView()
+	{
+		return new ProductoView(codigo,Integer.toString(codigo)+' '+nombre+' '+sala+' '+horario,precio);
+	}
 }

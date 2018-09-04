@@ -23,7 +23,7 @@ public abstract class Producto implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected int codigo;
-	private String nombre;
+	protected String nombre;
 
 	public Producto(String nombre) 
 	{
@@ -44,7 +44,7 @@ public abstract class Producto implements Serializable
 		this.codigo = codigo;
 	}
 	
-	
+	public abstract ProductoView getView();
 	public abstract float getPrecio();
 
 	public String getNombre() {

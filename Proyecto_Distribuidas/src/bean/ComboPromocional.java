@@ -33,8 +33,7 @@ public class ComboPromocional extends Producto implements Serializable
 	private List<Producto> productos;
 	
 	public ComboPromocional(float descuento, String nombre, ArrayList<Producto> productos) {
-		super();
-		this.setNombre(nombre);
+		super(nombre);
 		this.descuento = descuento;
 		this.productos = productos;
 	}
@@ -66,4 +65,11 @@ public class ComboPromocional extends Producto implements Serializable
 		return subtotal * (1 - descuento/100);
 	}
 
+	public ProductoView getView()
+	{
+		String combo = "";
+		for(Producto c : productos)
+			combo.concat(c.getNombre());
+		return new ProductoView(codigo,Integer.toString(codigo)+' '+nombre+' '+combo,getPrecio());
+	}
 }

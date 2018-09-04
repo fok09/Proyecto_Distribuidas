@@ -22,10 +22,9 @@ public class Adicional extends Producto implements Serializable
 
 	public Adicional(String nombre, float precio, String tipo) {
 
-		super();
+		super(nombre);
 		this.precio = precio;
 		this.tipo = tipo;
-		this.setNombre(nombre);
 	}
 	
 	public Adicional() {
@@ -48,4 +47,8 @@ public class Adicional extends Producto implements Serializable
 		this.tipo = tipo;
 	}
 
+	public ProductoView getView()
+	{
+		return new ProductoView(codigo,Integer.toString(codigo)+' '+tipo+' '+nombre,precio);
+	}
 }
