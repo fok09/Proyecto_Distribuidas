@@ -3,6 +3,7 @@ package bean;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -32,7 +33,7 @@ public class Venta implements Serializable
 	
 	@OneToMany (cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name="nroventa")
-	private ArrayList<ItemVenta> items;
+	private List<ItemVenta> items;
 	
 	public Venta(int numero, LocalDate fecha)
 	{

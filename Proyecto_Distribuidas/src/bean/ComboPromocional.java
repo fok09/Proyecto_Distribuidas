@@ -2,6 +2,7 @@ package bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -22,16 +23,14 @@ public class ComboPromocional extends Producto implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	private float descuento;
-	private String nombre;
-	
+		
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name="combo_producto", joinColumns=@JoinColumn(name="id_combo"), inverseJoinColumns=@JoinColumn(name="id_producto"))
-	private ArrayList<Producto> productos;
+	private List<Producto> productos;
 	
 	public ComboPromocional(float descuento, String nombre, ArrayList<Producto> productos) {
 		super();
 		this.descuento = descuento;
-		this.nombre = nombre;
 		this.productos = productos;
 	}
 	
@@ -46,16 +45,8 @@ public class ComboPromocional extends Producto implements Serializable
 		this.descuento = descuento;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public ArrayList<Producto> getProductos() {
-		return productos;
+		return (ArrayList<Producto>) productos;
 	}
 
 	public void setProductos(ArrayList<Producto> productos) {

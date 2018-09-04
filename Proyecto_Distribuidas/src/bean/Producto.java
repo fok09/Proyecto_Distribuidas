@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "productos")
+@Table(name = "producto")
 public abstract class Producto implements Serializable
 {
 	/**
@@ -25,6 +25,7 @@ public abstract class Producto implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected int codigo;
+	private String nombre;
 
 	
 	public Producto() 
@@ -47,4 +48,12 @@ public abstract class Producto implements Serializable
 	}
 	
 	public abstract float getPrecio();
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 }

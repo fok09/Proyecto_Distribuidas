@@ -16,7 +16,7 @@ public class Entrada extends Producto implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String pelicula;
+//	private String pelicula;
 	private String sala;
 	private String horario;
 	private float precio;
@@ -24,7 +24,7 @@ public class Entrada extends Producto implements Serializable
 	public Entrada(String pelicula, String sala, String horario, float precio) 
 	{
 		super();
-		this.pelicula = pelicula;
+//		this.pelicula = pelicula;
 		this.sala = sala;
 		this.horario = horario;
 		this.precio = precio;
@@ -33,13 +33,13 @@ public class Entrada extends Producto implements Serializable
 	public Entrada(){
 	}
 	
-	public String getPelicula() {
-		return pelicula;
-	}
-
-	public void setPelicula(String pelicula) {
-		this.pelicula = pelicula;
-	}
+//	public String getPelicula() {
+//		return pelicula;
+//	}
+//
+//	public void setPelicula(String pelicula) {
+//		this.pelicula = pelicula;
+//	}
 
 	public String getSala() {
 		return sala;
