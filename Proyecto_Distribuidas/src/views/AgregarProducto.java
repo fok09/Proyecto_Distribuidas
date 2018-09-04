@@ -6,15 +6,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import app.SistemaCine;
+import bean.ProductoView;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 
 public class AgregarProducto extends JFrame {
@@ -22,6 +28,9 @@ public class AgregarProducto extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtCantidad;
 	private JTextField txtPrecio;
+	private SistemaCine sisCin;
+	private RegistrarVenta ref;
+	private ProductoView prod;
 
 	/**
 	 * Launch the application.
@@ -38,11 +47,25 @@ public class AgregarProducto extends JFrame {
 			}
 		});
 	}
+	
+	public AgregarProducto() 
+	{
+		iniciarAgregarProducto();
+	}
+	
+	public AgregarProducto(SistemaCine sc, RegistrarVenta r) 
+	{
+		sisCin = sc;
+		ref = r;
+		iniciarAgregarProducto();
+	}
+	
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public AgregarProducto() {
+	public void iniciarAgregarProducto() {
 		setTitle("Agregar Producto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -53,10 +76,66 @@ public class AgregarProducto extends JFrame {
 		JLabel lblTipoProducto = new JLabel("Tipo Producto:");
 		
 		JComboBox cbTipoProducto = new JComboBox();
+		JComboBox cbProducto = new JComboBox();
+
+
+		cbTipoProducto.addItem("Entradas");
+		cbTipoProducto.addItem("Adicionales");
+		cbTipoProducto.addItem("Combos Promocionales");
+		
+		cbTipoProducto.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				Vector<ProductoView> vec = new Vector<ProductoView>();
+				if(cbTipoProducto.getSelectedItem().toString().equals("Entradas"))
+				{
+					cbProducto.removeAllItems();
+					txtPrecio.setText("");
+					vec = sisCin.getEntradas();
+					for(int i = 0; i < vec.size(); i++)
+						cbProducto.addItem(vec.elementAt(i).getNombre());
+				}
+				if(cbTipoProducto.getSelectedItem().toString().equals("Adicionales"))
+				{
+					cbProducto.removeAllItems();
+					txtPrecio.setText("");
+					vec = sisCin.getAdicionales();
+					for(int i = 0; i < vec.size(); i++)
+						cbProducto.addItem(vec.elementAt(i).getNombre());	
+				}
+				if(cbTipoProducto.getSelectedItem().toString().equals("Combos Promocionales"))
+				{
+					cbProducto.removeAllItems();
+					txtPrecio.setText("");
+					vec = sisCin.getCombos();
+					for(int i = 0; i < vec.size(); i++)
+						cbProducto.addItem(vec.elementAt(i).getNombre());
+				}
+			}
+		});
+
+		cbProducto.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				if(cbProducto.getSelectedItem() != null && cbTipoProducto.getSelectedItem() != null)
+				{
+					String seleccion = cbProducto.getSelectedItem().toString();
+					//System.out.println(seleccion.substring(0,seleccion.indexOf(" ")));
+					int cod = Integer.parseInt(seleccion.substring(0,seleccion.indexOf(" ")));
+					prod = sisCin.getProducto(cod);
+					txtPrecio.setText(prod.getPrecio().toString());
+					
+				}		
+				//else
+				//	System.out.println("no hay seleccion");
+			}
+		});
+		
 		
 		JLabel lblProducto = new JLabel("Producto:");
 		
-		JComboBox cbProducto = new JComboBox();
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() 
@@ -68,6 +147,24 @@ public class AgregarProducto extends JFrame {
 		});
 		
 		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				int cant = 0;
+				try
+					{
+			        	 cant = Integer.parseInt(txtCantidad.getText());
+			        }
+			        catch(Exception f)
+			        {
+			        	JOptionPane.showMessageDialog(null,"Ingrese cantidad");
+			        }
+				ref.agregarItemVenta(prod, cant);
+				dispose();
+	//			float total = sisCin.registrarVenta();
+	//			JOptionPane.showMessageDialog(null,total);
+			}
+		});
 		
 		JLabel lblCantidad = new JLabel("Cantidad:");
 		
