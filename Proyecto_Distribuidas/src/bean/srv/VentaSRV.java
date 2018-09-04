@@ -21,7 +21,7 @@ private static VentaDao dao;
 		dao.grabarVentas(ventas);
 	}
 	
-	public static List<Venta >leerVentas()
+	public static List<Venta>leerVentas()
 	{
 		return dao.leerVentas();
 	}

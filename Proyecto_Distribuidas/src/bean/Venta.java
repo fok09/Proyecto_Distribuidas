@@ -35,20 +35,11 @@ public class Venta implements Serializable
 	@JoinColumn(name="nroventa")
 	private List<ItemVenta> items;
 	
-	public Venta(int numero, LocalDate fecha)
+	public Venta()
 	{
 		super();
-		this.numero = getProximoNumero();
 		this.fecha = LocalDate.now();
 		this.items = new ArrayList<ItemVenta>();
-	}
-	
-	public Venta(){
-			}
-
-	public static int getProximoNumero()
-	{
-		return proximoNumero++;
 	}
 
 	public int getNumero() {
@@ -63,12 +54,14 @@ public class Venta implements Serializable
 		return fecha;
 	}
 	
-	
-	
 	public void agregarItem(Producto producto, int cantidad)
 	{
 		ItemVenta item = new ItemVenta(producto,cantidad);
 		items.add(item);
+	}
+	
+	public ItemVenta getItem(int index){
+		return items.get(index);
 	}
 	
 	public float getTotal()
