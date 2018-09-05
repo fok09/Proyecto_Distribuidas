@@ -68,12 +68,24 @@ public class VentanaInicial extends JFrame {
 					JOptionPane.showMessageDialog(null, "Sistema sin instanciar");
 			}
 		});
+		
+		JButton btnVentasAnteriores = new JButton("Ventas Anteriores");
+		btnVentasAnteriores.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				VentasAnteriores va = new VentasAnteriores(sisCin);
+				va.setVisible(true);
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(btnRegistrarVenta, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(btnVentasAnteriores, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+						.addComponent(btnRegistrarVenta, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
@@ -81,7 +93,9 @@ public class VentanaInicial extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(27)
 					.addComponent(btnRegistrarVenta, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(171, Short.MAX_VALUE))
+					.addGap(18)
+					.addComponent(btnVentasAnteriores, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(105, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}

@@ -123,6 +123,21 @@ public class SistemaCine
 		return co;
 	}
 	
+	public Vector<Vector<String>> getVentasAnteriores()
+	{
+		Vector<Vector<String>> vent = new Vector<Vector<String>>();
+		List<Venta> vs = VentaSRV.leerVentas();
+		for(Venta v : vs)
+		{
+			Vector<String> strs = new Vector<String>();
+			strs.add(String.valueOf(v.getNumero()));
+			strs.add(v.getFecha());
+			strs.add(String.valueOf(v.getTotal()));
+			vent.add(strs);
+		}
+		return vent;
+	}
+	
 	public ProductoView buscarEntrada(String nombre)
 	{
 		Vector<ProductoView> ents = getEntradas();
