@@ -25,9 +25,12 @@ public class SistemaCine
 	
 	private SistemaCine()
 	{
-		entradas = new ArrayList<Entrada>();
-		adicionales = new ArrayList<Adicional>();
-		combos = new ArrayList<ComboPromocional>();
+//		entradas = new ArrayList<Entrada>();
+//		adicionales = new ArrayList<Adicional>();
+//		combos = new ArrayList<ComboPromocional>();
+		entradas = ProductoSrv.leerEntradas();
+		adicionales = ProductoSrv.leerAdicional();
+		combos = ProductoSrv.leerCombos();
 		ventas = new ArrayList<Venta>();
 	}
 	
@@ -81,7 +84,7 @@ public class SistemaCine
 	public Vector<ProductoView> getEntradas()
 	{
 		Vector<ProductoView> ent = new Vector<ProductoView>();
-		entradas = ProductoSrv.leerEntradas();
+//		entradas = ProductoSrv.leerEntradas();
 		for(Producto p : entradas)
 			ent.add(p.getView());
 		return ent;
@@ -90,7 +93,7 @@ public class SistemaCine
 	public Vector<ProductoView> getAdicionales()
 	{
 		Vector<ProductoView> ad = new Vector<ProductoView>();
-		adicionales = ProductoSrv.leerAdicional();
+//		adicionales = ProductoSrv.leerAdicional();
 		for(Producto p : adicionales)
 			ad.add(p.getView());
 		return ad;
@@ -107,7 +110,7 @@ public class SistemaCine
 	public Vector<ProductoView> getCombos()
 	{
 		Vector<ProductoView> co = new Vector<ProductoView>();
-		combos = ProductoSrv.leerCombos();
+//		combos = ProductoSrv.leerCombos();
 		for(Producto p : combos)
 			co.add(p.getView());
 		return co;
