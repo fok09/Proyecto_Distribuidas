@@ -28,7 +28,7 @@ public class Venta implements Serializable
 	private static int proximoNumero;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numero;
 	private String fecha;
 	
