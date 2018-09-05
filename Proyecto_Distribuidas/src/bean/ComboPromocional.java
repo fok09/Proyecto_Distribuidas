@@ -29,7 +29,6 @@ public class ComboPromocional extends Producto implements Serializable
 //	@JoinTable(name="combo_producto", joinColumns=@JoinColumn(name="id_combo"), inverseJoinColumns=@JoinColumn(name="id_producto"))
 	
 	@OneToMany
-	//@JoinColumn(name="idcombo")
 	private List<Producto> productos;
 	
 	public ComboPromocional(float descuento, String nombre, ArrayList<Producto> productos) {
