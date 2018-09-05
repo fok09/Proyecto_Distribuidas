@@ -100,7 +100,7 @@ public class ProductoDao {
 	public List<ComboPromocional> leerCombos(){
 		Session session = sf.openSession();
 		@SuppressWarnings("unchecked")
-		List<ComboPromocional> list = session.createQuery("from Combo").list();
+		List<ComboPromocional> list = session.createQuery("from ComboPromocional").list();
 		session.close();
 		return list;
 	}

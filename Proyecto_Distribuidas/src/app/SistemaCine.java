@@ -153,17 +153,17 @@ public class SistemaCine
 		entradas.add(ent3);
 		entradas.add(ent4);
 		//adicionales
-		Adicional ad1 = new Adicional("pochoclo","comida",(float)80);
+		Adicional ad1 = new Adicional("pochoclo",(float)80,"comida");
 		adicionales.add(ad1);
 
-		Adicional ad2 = new Adicional("coca","bebida",(float)40);
+		Adicional ad2 = new Adicional("coca",(float)40,"bebida");
 		adicionales.add(ad2);
 		
 		//combos
 		ArrayList<Producto> pc = new ArrayList<Producto>();
 		pc.add(ad1);
 		pc.add(ad2);
-		ComboPromocional com1 = new ComboPromocional("coca+pochoclo",(float)20,pc);
+		ComboPromocional com1 = new ComboPromocional((float)20,"coca+pochoclo",pc);
 		combos.add(com1);
 	}
 }

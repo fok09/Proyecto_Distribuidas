@@ -25,10 +25,10 @@ public class ComboPromocional extends Producto implements Serializable
 	
 	private float descuento;
 		
-//	@ManyToMany(cascade = CascadeType.MERGE)
-//	@JoinTable(name="combo_producto", joinColumns=@JoinColumn(name="id_combo"), inverseJoinColumns=@JoinColumn(name="id_producto"))
+	@ManyToMany(cascade = CascadeType.MERGE)
+	@JoinTable(name="combo_producto", joinColumns=@JoinColumn(name="id_combo"), inverseJoinColumns=@JoinColumn(name="id_producto"))
 	
-	@OneToMany
+	//@OneToMany
 	private List<Producto> productos;
 	
 	public ComboPromocional(float descuento, String nombre, ArrayList<Producto> productos) {
