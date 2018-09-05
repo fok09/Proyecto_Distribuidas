@@ -61,6 +61,6 @@ public class ItemVenta implements Serializable
 	
 	public ItemVentaView getView()
 	{
-		return new ItemVentaView(producto.getCodigo(),producto.getNombre(),cantidad);
+		return new ItemVentaView(producto.getCodigo(),producto.getNombre(),producto.getPrecio(),cantidad);
 	}
 }
