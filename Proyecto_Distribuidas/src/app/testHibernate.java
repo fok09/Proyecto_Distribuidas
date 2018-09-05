@@ -27,10 +27,7 @@ public class testHibernate {
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 		
 		
-		Adicional a = new Adicional("Fanta",15,"Bebida");
-		productos.add(a);
-		ProductoSrv.grabarProducto(a);
-		
+	
 		Entrada e = new Entrada("Star Wars", "Sala 2", "16:15", 120);
 		productos.add(e);
 		Entrada e2 = new Entrada("Barney", "Sala 3", "18:15", 167);
@@ -40,20 +37,6 @@ public class testHibernate {
 		ProductoSrv.grabarProducto(e);
 		ProductoSrv.grabarProducto(e2);
 		ProductoSrv.grabarProducto(e4);
-		
-		
-		ArrayList<Producto> prods = new ArrayList<Producto>();
-		prods.add(ProductoSrv.getProducto(1));
-		prods.add(ProductoSrv.getProducto(2));
-		
-		ComboPromocional c = new ComboPromocional((float) 10, "Combo loco", prods);
-		ProductoSrv.grabarProducto(c);
-		
-		Entrada entrada = (Entrada) ProductoSrv.getProducto(2);
-		ArrayList<Entrada> entraditas = (ArrayList<Entrada>) ProductoSrv.leerEntradas();
-		for (Entrada eeee:entraditas)
-			System.out.println("" + eeee.getNombre() + eeee.getHorario() + eeee.getSala());
-		
 		Entrada ent1 = new Entrada("Duro de matar","sala1","22:00",(float)20);
 		Entrada ent2 = new Entrada("Jurassic Park","sala 2","19:30",(float)20);
 		Entrada ent3 = new Entrada("Pulp Fiction","sala 3","20:40",(float)20);
@@ -62,19 +45,57 @@ public class testHibernate {
 		ProductoSrv.grabarProducto(ent2);
 		ProductoSrv.grabarProducto(ent3);
 		ProductoSrv.grabarProducto(ent4);
+		
+//		ArrayList<Producto> prods = new ArrayList<Producto>();
+//		prods.add(ProductoSrv.getProducto(1));
+//		prods.add(ProductoSrv.getProducto(2));
+		
+//		ComboPromocional c = new ComboPromocional((float) 10, "Combo loco", prods);
+//		ProductoSrv.grabarProducto(c);
+		
+//		Entrada entrada = (Entrada) ProductoSrv.getProducto(2);
+		
+		ArrayList<Entrada> entraditas = (ArrayList<Entrada>) ProductoSrv.leerEntradas();
+		for (Entrada eeee:entraditas)
+			System.out.println("" + eeee.getNombre() + eeee.getHorario() + eeee.getSala());
+		
+		
 		//adicionales
-		Adicional ad1 = new Adicional("pochoclo",(float)80,"comida");
-		ProductoSrv.grabarProducto(ad1);
+		Adicional ad2 = new Adicional("coca",(float)40,"Bebida");
+		ProductoSrv.grabarProducto(ad2);
+		ad2 = new Adicional("Fanta",15,"Bebida");
+		ProductoSrv.grabarProducto(ad2);
+		ad2 = new Adicional("Pochoclo",(float)80,"Comida");
+		ProductoSrv.grabarProducto(ad2);
+		ad2 = new Adicional("Pizza",(float)80,"Comida");
+		ProductoSrv.grabarProducto(ad2);
 
-		Adicional ad2 = new Adicional("coca",(float)40,"bebida");
+		
+		ad2 = new Adicional("Remera Ironman",(float)40,"Merchandising");
+		ProductoSrv.grabarProducto(ad2);
+		ad2 = new Adicional("Martillo Thor",(float)40,"Merchandising");
+		ProductoSrv.grabarProducto(ad2);
+		ad2 = new Adicional("Gorra",(float)40,"Merchandising");
 		ProductoSrv.grabarProducto(ad2);
 		
 		//combos
 		ArrayList<Producto> pc = new ArrayList<Producto>();
+		pc.add(ProductoSrv.getProducto(8));
 		pc.add(ProductoSrv.getProducto(10));
-		pc.add(ProductoSrv.getProducto(11));
-		ComboPromocional com1 = new ComboPromocional((float)20,"coca+pochoclo",pc);
+		ComboPromocional com1 = new ComboPromocional((float)20,"Coca + Pochoclo",pc);
 		ProductoSrv.grabarProducto(com1);
+		
+		ArrayList<Producto> pc2 = new ArrayList<Producto>();
+		pc2.add(ProductoSrv.getProducto(9));
+		pc2.add(ProductoSrv.getProducto(11));
+		ComboPromocional com2 = new ComboPromocional((float)10,"Fanta + Pochoclo",pc2);
+		ProductoSrv.grabarProducto(com2);
+		
+		ArrayList<Producto> pc3 = new ArrayList<Producto>();
+		pc3.add(ProductoSrv.getProducto(12));
+		pc3.add(ProductoSrv.getProducto(14));
+		ComboPromocional com3 = new ComboPromocional((float)30,"Remera + Gorra",pc3);
+		ProductoSrv.grabarProducto(com3);
 		
 		Venta venta = new Venta();
 		venta.agregarItem(ProductoSrv.getProducto(1), 99);
