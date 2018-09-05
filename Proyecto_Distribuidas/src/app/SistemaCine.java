@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import bean.Adicional;
+import bean.ComboPromocional;
+import bean.Entrada;
 import bean.Producto;
 import bean.ProductoView;
 import bean.Venta;
 import bean.VentaView;
+import bean.srv.ProductoSrv;
 
 public class SistemaCine 
 {
-	private List<Producto> entradas;
-	private List<Producto> adicionales;
-	private List<Producto> combos;
+	private List<Entrada> entradas;
+	private List<Adicional> adicionales;
+	private List<ComboPromocional> combos;
 	private List<Venta> ventas;
 	private Venta ventaActual;
 	
@@ -21,9 +25,9 @@ public class SistemaCine
 	
 	private SistemaCine()
 	{
-		entradas = new ArrayList<Producto>();
-		adicionales = new ArrayList<Producto>();
-		combos = new ArrayList<Producto>();
+		entradas = new ArrayList<Entrada>();
+		adicionales = new ArrayList<Adicional>();
+		combos = new ArrayList<ComboPromocional>();
 		ventas = new ArrayList<Venta>();
 	}
 	
@@ -77,6 +81,7 @@ public class SistemaCine
 	public Vector<ProductoView> getEntradas()
 	{
 		Vector<ProductoView> ent = new Vector<ProductoView>();
+		entradas = ProductoSrv.leerEntradas();
 		for(Producto p : entradas)
 			ent.add(p.getView());
 		return ent;
@@ -85,6 +90,7 @@ public class SistemaCine
 	public Vector<ProductoView> getAdicionales()
 	{
 		Vector<ProductoView> ad = new Vector<ProductoView>();
+		adicionales = ProductoSrv.leerAdicional();
 		for(Producto p : adicionales)
 			ad.add(p.getView());
 		return ad;
@@ -101,6 +107,7 @@ public class SistemaCine
 	public Vector<ProductoView> getCombos()
 	{
 		Vector<ProductoView> co = new Vector<ProductoView>();
+		combos = ProductoSrv.leerCombos();
 		for(Producto p : combos)
 			co.add(p.getView());
 		return co;
