@@ -46,20 +46,8 @@ public class testHibernate {
 		ProductoSrv.grabarProducto(ent3);
 		ProductoSrv.grabarProducto(ent4);
 		
-//		ArrayList<Producto> prods = new ArrayList<Producto>();
-//		prods.add(ProductoSrv.getProducto(1));
-//		prods.add(ProductoSrv.getProducto(2));
-		
-//		ComboPromocional c = new ComboPromocional((float) 10, "Combo loco", prods);
-//		ProductoSrv.grabarProducto(c);
-		
-//		Entrada entrada = (Entrada) ProductoSrv.getProducto(2);
-		
 		ArrayList<Entrada> entraditas = (ArrayList<Entrada>) ProductoSrv.leerEntradas();
-		for (Entrada eeee:entraditas)
-			System.out.println("" + eeee.getNombre() + eeee.getHorario() + eeee.getSala());
-		
-		
+
 		//adicionales
 		Adicional ad2 = new Adicional("coca",(float)40,"Bebida");
 		ProductoSrv.grabarProducto(ad2);
@@ -101,7 +89,6 @@ public class testHibernate {
 		venta.agregarItem(ProductoSrv.getProducto(1), 99);
 		VentaSRV.grabarVenta(venta);
 		ArrayList<Venta> v = (ArrayList<Venta>)VentaSRV.leerVentas();
-		System.out.println(v.get(0).getNumero() + "    " + v.get(0).getTotal() + "    " + v.get(0).getItem(0).getCantidad());
 	}
 
 }
