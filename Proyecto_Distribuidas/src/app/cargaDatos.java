@@ -18,7 +18,7 @@ import bean.srv.ProductoSrv;
 import bean.srv.VentaSRV;
 import hbt.HibernateUtil;
 
-public class testHibernate {
+public class cargaDatos {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -37,10 +37,10 @@ public class testHibernate {
 		ProductoSrv.grabarProducto(e);
 		ProductoSrv.grabarProducto(e2);
 		ProductoSrv.grabarProducto(e4);
-		Entrada ent1 = new Entrada("Duro de matar","sala1","22:00",(float)20);
-		Entrada ent2 = new Entrada("Jurassic Park","sala 2","19:30",(float)20);
-		Entrada ent3 = new Entrada("Pulp Fiction","sala 3","20:40",(float)20);
-		Entrada ent4 = new Entrada("North by Northwest","sala 4","17:10",(float)20);
+		Entrada ent1 = new Entrada("Duro de matar","Sala 1","22:00",(float)20);
+		Entrada ent2 = new Entrada("Jurassic Park","Sala 2","19:30",(float)20);
+		Entrada ent3 = new Entrada("Pulp Fiction","Sala 3","20:40",(float)20);
+		Entrada ent4 = new Entrada("North by Northwest","Sala 4","17:10",(float)20);
 		ProductoSrv.grabarProducto(ent1);
 		ProductoSrv.grabarProducto(ent2);
 		ProductoSrv.grabarProducto(ent3);
@@ -49,7 +49,7 @@ public class testHibernate {
 		ArrayList<Entrada> entraditas = (ArrayList<Entrada>) ProductoSrv.leerEntradas();
 
 		//adicionales
-		Adicional ad2 = new Adicional("coca",(float)40,"Bebida");
+		Adicional ad2 = new Adicional("Coca",(float)40,"Bebida");
 		ProductoSrv.grabarProducto(ad2);
 		ad2 = new Adicional("Fanta",15,"Bebida");
 		ProductoSrv.grabarProducto(ad2);
@@ -90,5 +90,4 @@ public class testHibernate {
 		VentaSRV.grabarVenta(venta);
 		ArrayList<Venta> v = (ArrayList<Venta>)VentaSRV.leerVentas();
 	}
-
 }
