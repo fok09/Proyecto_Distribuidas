@@ -153,14 +153,15 @@ public class AgregarProducto extends JFrame {
 				int cant = 0;
 				try
 					{
-			        	 cant = Integer.parseInt(txtCantidad.getText());
+			        	cant = Integer.parseInt(txtCantidad.getText());
+						ref.agregarItemVenta(prod, cant);
+						dispose();
 			        }
 			        catch(Exception f)
 			        {
 			        	JOptionPane.showMessageDialog(null,"Ingrese cantidad");
 			        }
-				ref.agregarItemVenta(prod, cant);
-				dispose();
+
 	//			float total = sisCin.registrarVenta();
 	//			JOptionPane.showMessageDialog(null,total);
 			}

@@ -12,6 +12,7 @@ import bean.ProductoView;
 import bean.Venta;
 import bean.VentaView;
 import bean.srv.ProductoSrv;
+import bean.srv.VentaSRV;
 
 public class SistemaCine 
 {
@@ -60,9 +61,15 @@ public class SistemaCine
 		return ventaActual.getView();
 	}
 	
+	public float totalVenta()
+	{
+		return ventaActual.getTotal();
+	}
+	
 	public float registrarVenta()
 	{
 		ventas.add(ventaActual);
+		VentaSRV.grabarVenta(ventaActual);
 		return ventaActual.getTotal();
 		//aca va la bajada a base de datos
 	}
