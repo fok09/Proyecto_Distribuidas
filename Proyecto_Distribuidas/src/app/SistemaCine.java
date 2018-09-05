@@ -139,5 +139,31 @@ public class SistemaCine
 				return combs.elementAt(i);
 		return null;		
 	}
+
 	
+	private void test()
+	{
+		//entradas
+		Entrada ent1 = new Entrada("Duro de matar","sala1","22:00",(float)20);
+		Entrada ent2 = new Entrada("Jurassic Park","sala 2","19:30",(float)20);
+		Entrada ent3 = new Entrada("Pulp Fiction","sala 3","20:40",(float)20);
+		Entrada ent4 = new Entrada("North by Northwest","sala 4","17:10",(float)20);
+		entradas.add(ent1);
+		entradas.add(ent2);
+		entradas.add(ent3);
+		entradas.add(ent4);
+		//adicionales
+		Adicional ad1 = new Adicional("pochoclo","comida",(float)80);
+		adicionales.add(ad1);
+
+		Adicional ad2 = new Adicional("coca","bebida",(float)40);
+		adicionales.add(ad2);
+		
+		//combos
+		ArrayList<Producto> pc = new ArrayList<Producto>();
+		pc.add(ad1);
+		pc.add(ad2);
+		ComboPromocional com1 = new ComboPromocional("coca+pochoclo",(float)20,pc);
+		combos.add(com1);
+	}
 }
