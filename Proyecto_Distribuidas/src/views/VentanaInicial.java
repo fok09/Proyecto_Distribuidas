@@ -48,7 +48,7 @@ public class VentanaInicial extends JFrame {
 	public void iniciarVentanaInicial() {
 		setTitle("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 385, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -62,7 +62,7 @@ public class VentanaInicial extends JFrame {
 				{
 					RegistrarVenta reg = new RegistrarVenta(sisCin);
 					reg.setVisible(true);
-					dispose();
+		//			dispose();
 				}
 				else
 					JOptionPane.showMessageDialog(null, "Sistema sin instanciar");
@@ -73,15 +73,15 @@ public class VentanaInicial extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(btnRegistrarVenta, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(263, Short.MAX_VALUE))
+					.addComponent(btnRegistrarVenta, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
+					.addGap(27)
 					.addComponent(btnRegistrarVenta, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(185, Short.MAX_VALUE))
+					.addContainerGap(171, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
